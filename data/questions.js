@@ -1,4 +1,4 @@
-[
+export const questions = [
   "What was your first impression of me when we met?",
   "What is your favorite memory of us together?",
   "How do you feel most loved by me?",
