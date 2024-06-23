@@ -42,12 +42,12 @@ export default function Home() {
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ rotate: 360, scale: 1 }}
-                exit={{ scale: 0 }}
                 transition={{
                   type: "spring",
                   stiffness: 260,
                   damping: 20,
                 }}
+                key={question}
                 className="mt-10 text-red-600 font-bold bg-[#ffebe9] p-10 rounded-xl"
               >
                 {question}
