@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { getRandomQuestion } from "@/utils/questions";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
   const [question, setQuestion] = useState<string | null>(null);
@@ -36,11 +37,23 @@ export default function Home() {
               Generate a question
             </button>
           </div>
-          {question && (
-            <div className="mt-10 text-red-600 font-bold bg-[#ffebe9] p-10 rounded-xl">
-              {question}
-            </div>
-          )}
+          <AnimatePresence>
+            {question && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ rotate: 360, scale: 1 }}
+                exit={{ scale: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                className="mt-10 text-red-600 font-bold bg-[#ffebe9] p-10 rounded-xl"
+              >
+                {question}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </main>
     </>
